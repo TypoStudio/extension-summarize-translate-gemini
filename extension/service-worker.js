@@ -152,6 +152,9 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
       sendResponse(response);
     } else if (request.message === "keepalive") {
       sendResponse({ status: "alive" });
+    } else if (request.message === "open-side-panel") {
+      await chrome.sidePanel.open({ windowId: request.windowId });
+      sendResponse({ ok: true });
     }
   })();
 

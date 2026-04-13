@@ -65,6 +65,11 @@ Follow-up questions can be asked on the results page.
 
 ![Results](img/screenshot_results.png)
 
+## Modifications (TypoStudio Fork)
+
+- **Side panel for results**: The "Open results in a new tab" button in the popup is replaced with "사이드바에서 결과 열기" (Open results in side panel), which opens the results page in Chrome's built-in side panel instead of a new tab.
+- **Compact action buttons in side panel**: When the results page is displayed in the side panel (narrow width ≤ 450px), the Clear / Copy / Save buttons are laid out in a single row with smaller text and padding.
+
 ## License
 
 MIT License  

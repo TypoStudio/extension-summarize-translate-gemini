@@ -16,10 +16,14 @@
     "type": "module"
   },
   "options_page": "options.html",
+  "side_panel": {
+    "default_path": "results.html"
+  },
   "permissions": [
     "activeTab",
     "contextMenus",
     "scripting",
+    "sidePanel",
     "storage"
   ],
   "commands": {

@@ -299,7 +299,7 @@ const initialize = async () => {
 
   // Restore the content from the session storage
   const urlParams = new URLSearchParams(window.location.search);
-  resultIndex = urlParams.get("i");
+  resultIndex = urlParams.get("i") ?? (await chrome.storage.session.get({ resultIndex: 0 })).resultIndex;
   result = (await chrome.storage.session.get({ [`result_${resultIndex}`]: "" }))[`result_${resultIndex}`];
 
   if (!result) {

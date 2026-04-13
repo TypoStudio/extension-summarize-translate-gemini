@@ -16,6 +16,21 @@
         display: block;
       }
     }
+
+    @media (max-width: 450px) {
+      #action-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      #action-buttons button {
+        display: inline !important;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.4rem;
+      }
+    }
   </style>
 </head>
 
@@ -32,7 +47,7 @@
   <p id="content" dir="auto"></p>
   <div id="conversation"></div>
 
-  <div>
+  <div id="action-buttons">
     <button id="clear" data-i18n="results_button_clear">Clear conversation</button>
     <button id="copy" data-i18n="results_button_copy">Copy</button>
     <button id="save" data-i18n="results_button_save">Save</button>

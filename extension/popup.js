@@ -491,17 +491,14 @@ document.getElementById("run").addEventListener("click", () => {
 document.getElementById("copy").addEventListener("click", copyContent);
 document.getElementById("save").addEventListener("click", saveContent);
 
-document.getElementById("results").addEventListener("click", () => {
-  chrome.tabs.create({ url: chrome.runtime.getURL(`results.html?i=${resultIndex}`) }, () => {
-    window.close();
-  });
-});
+const openResultsInSidePanel = async () => {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  await chrome.runtime.sendMessage({ message: "open-side-panel", windowId: tab.windowId });
+  window.close();
+};
 
-document.getElementById("results-link").addEventListener("click", () => {
-  chrome.tabs.create({ url: chrome.runtime.getURL(`results.html?i=${resultIndex}`) }, () => {
-    window.close();
-  });
-});
+document.getElementById("results").addEventListener("click", openResultsInSidePanel);
+document.getElementById("results-link").addEventListener("click", openResultsInSidePanel);
 
 document.getElementById("options").addEventListener("click", () => {
   chrome.runtime.openOptionsPage(() => {
